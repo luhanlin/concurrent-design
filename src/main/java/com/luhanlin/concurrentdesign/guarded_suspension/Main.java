@@ -11,17 +11,28 @@ package com.luhanlin.concurrentdesign.guarded_suspension;
 public class Main {
 
     public static void main(String[] args) {
-//        RequestQueue requestQueue = new RequestQueue();
-//        new ClientThread(requestQueue,"Allen", 3141592).start();
-//        new ServerThread(requestQueue,"bob", 6535897).start();
+        RequestQueue requestQueue = new RequestQueue();
+        ClientThread allen = new ClientThread(requestQueue, "Allen", 3141592);
+        ServerThread bob = new ServerThread(requestQueue, "bob", 6535897);
+        allen.start();
+        bob.start();
 
-        RequestQueue input = new RequestQueue();
-        RequestQueue output = new RequestQueue();
+        try {
+            Thread.sleep(10000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
 
-        // 先加入一条初始消息
-        input.putRequest(new Request("init request "));
+        allen.interrupt();
+        bob.interrupt();
 
-        new TalkThread("Allen",input,output).start();
-        new TalkThread("Bella",output,input).start();
+//        RequestQueue input = new RequestQueue();
+//        RequestQueue output = new RequestQueue();
+//
+//        // 先加入一条初始消息
+//        input.putRequest(new Request("init request "));
+//
+//        new TalkThread("Allen",input,output).start();
+//        new TalkThread("Bella",output,input).start();
     }
 }

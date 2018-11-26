@@ -23,14 +23,14 @@ public class ServerThread extends Thread {
 
     @Override
     public void run() {
-        for (int i = 0; i < 10000; i++) {
-            Request request = requestQueue.getRequest();
-            System.out.println(Thread.currentThread().getName() + " handles :" + request);
-            try {
+        try {
+            for (int i = 0; i < 10000; i++) {
+                Request request = requestQueue.getRequest();
+                System.out.println(Thread.currentThread().getName() + " handles :" + request);
                 Thread.sleep(random.nextInt(1000));
-            } catch (InterruptedException e) {
-                e.printStackTrace();
             }
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
     }
 }

@@ -15,13 +15,9 @@ public class RequestQueue {
 
     private final Queue<Request> queue = new LinkedList<>();
 
-    public synchronized Request getRequest() {
+    public synchronized Request getRequest() throws InterruptedException {
         while (queue.peek() == null){
-            try {
-                wait();
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
+            wait();
         }
         return queue.remove();
     }
