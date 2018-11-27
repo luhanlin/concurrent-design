@@ -11,28 +11,31 @@ package com.luhanlin.concurrentdesign.guarded_suspension;
 public class Main {
 
     public static void main(String[] args) {
-        RequestQueue requestQueue = new RequestQueue();
-        ClientThread allen = new ClientThread(requestQueue, "Allen", 3141592);
-        ServerThread bob = new ServerThread(requestQueue, "bob", 6535897);
-        allen.start();
-        bob.start();
-
-        try {
-            Thread.sleep(10000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
-        allen.interrupt();
-        bob.interrupt();
-
-//        RequestQueue input = new RequestQueue();
-//        RequestQueue output = new RequestQueue();
+//        RequestQueue requestQueue = new RequestQueue();
+//        ClientThread allen = new ClientThread(requestQueue, "Allen", 3141592);
+//        ServerThread bob = new ServerThread(requestQueue, "bob", 6535897);
+//        allen.start();
+//        bob.start();
 //
-//        // 先加入一条初始消息
+//        try {
+//            Thread.sleep(10000);
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
+//
+//        allen.interrupt();
+//        bob.interrupt();
+
+        RequestQueue input = new RequestQueue();
+        RequestQueue output = new RequestQueue();
+
+        // 先加入一条初始消息
 //        input.putRequest(new Request("init request "));
-//
-//        new TalkThread("Allen",input,output).start();
-//        new TalkThread("Bella",output,input).start();
+
+        new TalkThread("Allen",input,output).start();
+        new TalkThread("Bella",output,input).start();
+
+        // 启动后添加消息测试
+        input.putRequest(new Request("init request "));
     }
 }
