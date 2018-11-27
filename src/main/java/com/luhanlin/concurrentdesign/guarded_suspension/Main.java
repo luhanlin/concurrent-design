@@ -32,10 +32,11 @@ public class Main {
         // 先加入一条初始消息
 //        input.putRequest(new Request("init request "));
 
+        // 不加入初始值检查 时间超时
         new TalkThread("Allen",input,output).start();
         new TalkThread("Bella",output,input).start();
 
         // 启动后添加消息测试
-        input.putRequest(new Request("init request "));
+//        input.putRequest(new Request("init request "));
     }
 }
