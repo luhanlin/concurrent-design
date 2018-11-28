@@ -3,6 +3,7 @@ package com.luhanlin.concurrentdesign.guarded_suspension;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.concurrent.BlockingDeque;
+import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingDeque;
 import java.util.concurrent.TimeUnit;
 
@@ -21,7 +22,7 @@ public class RequestQueue {
 
 //    private final Queue<Request> queue = new LinkedList<>();
 
-    private final BlockingDeque<Request> queue = new LinkedBlockingDeque<>();
+    private final BlockingQueue<Request> queue = new LinkedBlockingDeque<>();
 
 //    public synchronized Request getRequest() {
 //        long start = System.currentTimeMillis();
