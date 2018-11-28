@@ -31,11 +31,11 @@ public class BlackHole {
                         System.out.println(" enter magic this ");
                         this.notifyAll();
                     }
-//                    try {
-//                        this.join();
-//                    } catch (InterruptedException e) {
-//                        e.printStackTrace();
-//                    }
+                    try {
+                        this.join();
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
                 }
             }
         };
