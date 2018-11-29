@@ -1,6 +1,6 @@
-package com.luhanlin.concurrentdesign.thread_per_message;
+package com.luhanlin.concurrentdesign.future;
 
-import java.util.concurrent.ThreadFactory;
+import java.util.concurrent.Callable;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
@@ -13,17 +13,18 @@ import java.util.concurrent.atomic.AtomicInteger;
  */
 public class Host {
 
-    private final Helper helper = new Helper();
     private final AtomicInteger atomicInteger = new AtomicInteger(0);
 
-    public void request(int count, char c){
+    public Data request(final int count, final char c){
         System.out.println("        request (" + count + " , " + c + ") Begin");
 
-        new Thread(() -> {
-            helper.handle(count, c);
-        },"No." + atomicInteger.getAndIncrement()).start();
+        final FutureData futureData = new FutureData(() -> new RealData(count, c));
+
+        new Thread(futureData).start();
 
         System.out.println("        request (" + count + " , " + c + ") end");
+
+        return futureData;
     }
 
 }
