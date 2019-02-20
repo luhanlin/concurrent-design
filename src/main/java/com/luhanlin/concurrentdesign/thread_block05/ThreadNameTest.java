@@ -1,4 +1,4 @@
-package com.luhanlin.concurrentdesign.thread_construct;
+package com.luhanlin.concurrentdesign.thread_block05;
 
 import java.util.stream.IntStream;
 
