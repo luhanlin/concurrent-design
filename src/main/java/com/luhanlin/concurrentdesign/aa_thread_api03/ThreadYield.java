@@ -1,4 +1,4 @@
-package com.luhanlin.concurrentdesign.thread_api03;
+package com.luhanlin.concurrentdesign.aa_thread_api03;
 
 import java.util.stream.IntStream;
 

@@ -1,4 +1,4 @@
-package com.luhanlin.concurrentdesign.thread_group06;
+package com.luhanlin.concurrentdesign.aa_thread_group06;
 
 public class ThreadGroupCreater {
 

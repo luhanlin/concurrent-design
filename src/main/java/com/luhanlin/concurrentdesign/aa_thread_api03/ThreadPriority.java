@@ -1,4 +1,4 @@
-package com.luhanlin.concurrentdesign.thread_api03;
+package com.luhanlin.concurrentdesign.aa_thread_api03;
 
 public class ThreadPriority {
 

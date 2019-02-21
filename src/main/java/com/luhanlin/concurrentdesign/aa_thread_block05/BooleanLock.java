@@ -1,4 +1,4 @@
-package com.luhanlin.concurrentdesign.thread_block05;
+package com.luhanlin.concurrentdesign.aa_thread_block05;
 
 import java.util.ArrayList;
 import java.util.Collections;

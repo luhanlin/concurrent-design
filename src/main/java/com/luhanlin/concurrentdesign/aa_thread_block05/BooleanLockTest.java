@@ -1,9 +1,8 @@
-package com.luhanlin.concurrentdesign.thread_block05;
+package com.luhanlin.concurrentdesign.aa_thread_block05;
 
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
-import java.util.stream.IntStream;
 
 import static java.lang.Thread.currentThread;
 
