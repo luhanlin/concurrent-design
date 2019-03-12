@@ -21,6 +21,7 @@ public class FutureTest {
             try {
                 TimeUnit.SECONDS.sleep(2);
             } catch (InterruptedException e) {
+                e.printStackTrace();
             }
         });
 

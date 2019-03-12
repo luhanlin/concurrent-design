@@ -30,6 +30,7 @@ public class FutureData<V> implements Future<V>{
 
     protected void finish(V result){
         synchronized (LOCK){
+            // balking
             if (isDone){
                 return;
             }
